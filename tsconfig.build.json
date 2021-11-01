@@ -27,5 +27,5 @@
   /**
    * Exclude `*.test.ts` files because they are not part of the output.
    */
-  "exclude": ["**/*.test.ts", "**/test/**/*"]
+  "exclude": ["**/*.test.ts", "**/test/**/*", "jest.config.ts"]
 }

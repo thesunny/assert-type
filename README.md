@@ -3,39 +3,33 @@
 ## Getting Started
 
 ```sh
-# in your project root, initialize an empty git repo
-git init
-
-# Pull npm-starter-kit
-git pull https://github.com/thesunny/npm-starter-kit.git
-
-# Install dependencies
-yarn
+yarn add @thesunny/assert-type
 ```
 
-## Building your project
+## Writing AssertType asserts
 
-```sh
-yarn build
-```
+```ts
+import { AssertType } from ".."
 
-## Publishing a new version
+describe("AssertType", () => {
+  describe("AssertType.Equal", () => {
+    it("should check if two types are not equal", async () => {
+      AssertType.NotEqual<0, 1>(true)
+    })
 
-```sh
-# Executes build, bumps version, and shows instructions on publishing
-yarn prepublish
+    it("should check if two types are exactly equal", async () => {
+      AssertType.Equal<88, 88>(true)
+    })
+  })
 
-# Publish in namespaced to NPM for first time
-# (--access required for first time in an @namespace/packace project)
-npm publish --access=public
+  describe("AssertType.Extends", () => {
+    it("should check if a type cannot extend another", async () => {
+      AssertType.NotExtends<number, 0>(true)
+    })
 
-# Other publish
-npm publish
-```
-
-## Testing
-
-```sh
-# Run unit tests in Jest continuously
-yarn test:watch
+    it("should check if a type can extend another", async () => {
+      AssertType.Extends<0, number>(true)
+    })
+  })
+})
 ```
