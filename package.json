@@ -1,6 +1,6 @@
 {
   "name": "@thesunny/assert-type",
-  "version": "0.1.9",
+  "version": "0.1.10",
   "author": "Sunny Hirai <thesunny@gmail.com>",
   "license": "MIT",
   "main": ".dist/src/index.js",
@@ -12,10 +12,10 @@
     "ts-node": "^10.9.1"
   },
   "devDependencies": {
-    "@types/jest": "^26.0.23",
+    "@types/jest": "^27",
     "@types/node": "^18.7.23",
-    "jest": "^27.0.6",
-    "ts-jest": "^27.0.3",
+    "jest": "^27",
+    "ts-jest": "^27",
     "tsconfig-paths": "^4.1.0",
     "type-fest": "^2.5.2",
     "typescript": "^4.8.3"
@@ -25,6 +25,9 @@
     "prepublish": "yarn build && yarn version --patch && echo '\"npm publish --access=public\" to publish to npm'",
     "--- test": "#",
     "test:watch": "jest --watch",
-    "test": "jest"
+    "test": "jest",
+    "-- preset": "# Run preset from @thesunny/presets",
+    "preset": "ts-node --project node_modules/@thesunny/presets/tsconfig.ts-node.json node_modules/@thesunny/presets/bin/index.ts",
+    "-- end": "# end"
   }
 }
