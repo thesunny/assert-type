@@ -1,4 +1,4 @@
-# NPM Starter Kit
+# AssertType
 
 ## Getting Started
 
