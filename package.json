@@ -1,6 +1,6 @@
 {
   "name": "@thesunny/assert-type",
-  "version": "0.1.11",
+  "version": "0.1.12",
   "author": "Sunny Hirai <thesunny@gmail.com>",
   "license": "MIT",
   "main": ".dist/src/index.js",
@@ -25,6 +25,7 @@
     "jest": "^27",
     "prettier": "^2",
     "ts-jest": "^27",
+    "tsc": "^2.0.4",
     "tsconfig-paths": "^4.1.0",
     "type-fest": "^2.5.2",
     "typescript": "^4.8.3"
@@ -40,6 +41,14 @@
     "test:once": "yarn test:clearcache && jest --config=jest.config.js",
     "test:watch:types": "yarn test:clearcache && jest --watch --config=jest.config.js",
     "test:clearcache": "jest --clearCache",
+    "-- fix": "# fix syntax",
+    "fix:prettier": "yarn lint:prettier --write",
+    "fix:eslint": "yarn lint:eslint --fix",
+    "-- lint": "# lint syntax",
+    "lint": "concurrently 'yarn lint:prettier' 'yarn lint:eslint' 'yarn lint:tsc'",
+    "lint:prettier": "prettier --check \"**/*.{css,md,js,jsx,json,ts,tsx}\"",
+    "lint:eslint": "eslint .",
+    "lint:tsc": "tsc --build ./ --force",
     "-- end": "# end"
   }
 }
