@@ -27,6 +27,7 @@
  *   call to `AssertType.Equal` if we had an `AssertType.Number`. Also opens
  *   the floodgate to possible function bloat when they aren't necessary.
  */
+// eslint-disable-next-line @typescript-eslint/no-namespace
 export namespace AssertType {
   /**
    * If the two types are equal (either type can extends from the other type in
@@ -47,13 +48,25 @@ export namespace AssertType {
   (<T>() => T extends A ? 1 : 2) extends
   (<T>() => T extends B ? 1 : 2) ? Y : N
 
-  export function Equal<A, B>(value: IsEqual<A, B>): void {}
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  export function Equal<A, B>(value: IsEqual<A, B>): void {
+    /* noop */
+  }
 
   export function NotEqual<A, B>(
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     value: IsEqual<A, B> extends true ? false : true
-  ): void {}
+  ): void {
+    /* noop */
+  }
 
-  export function Extends<A, B>(value: A extends B ? true : false): void {}
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  export function Extends<A, B>(value: A extends B ? true : false): void {
+    /* noop */
+  }
 
-  export function NotExtends<A, B>(value: A extends B ? false : true): void {}
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  export function NotExtends<A, B>(value: A extends B ? false : true): void {
+    /* noop */
+  }
 }
